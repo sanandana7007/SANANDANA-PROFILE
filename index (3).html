@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanandan Ramchandra - Electrical Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #b0b0b0;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #00d4ff;
+        }
+
+        /* Summary */
+        .summary-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #c0c0c0;
+            text-align: center;
+        }
+
+        /* Education */
+        .education-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .education-title {
+            font-size: 1.3rem;
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-date {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .education-gpa {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-date {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #c0c0c0;
+            line-height: 1.6;
+        }
+
+        .project-description ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .project-description li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(45deg, rgba(0, 212, 255, 0.2), rgba(0, 153, 204, 0.2));
+            color: #00d4ff;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+
+        /* Publications & Activities */
+        .publication-item,
+        .activity-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .publication-title {
+            color: #00d4ff;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-author {
+            color: #b0b0b0;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-date {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #e0e0e0;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #888;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #00d4ff, #0099cc);
+            color: white;
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .contact-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-info-card h3 {
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-info-card p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .contact-info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">SR</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Sanandan Ramchandra</h1>
+            <h2>Electrical & Electronics Engineer</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📱</span>
+                    <span>+91 78927 12187</span>
+                </div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>sanandana7007@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Bangalore, Karnataka, India</span>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <span>LinkedIn</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Summary Section -->
+    <section id="about" class="summary">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="summary-content">
+                <p>I am Sanandana R, an Electrical and Electronics Engineering student at BMS College of Engineering, Bangalore, passionate about power electronics, control systems, and electromagnetic theory. I have worked on projects like high-frequency boost converter design, wireless power transmission, and smart display boards using SPI, with skills in MATLAB, Python, C, AutoCAD, and MiPower.</p>
+                <br>
+                <p>Along with technical expertise, I bring strong teamwork, critical thinking, and communication skills. My goal is to apply my knowledge to real-world engineering challenges, contribute to organizational growth, and create a positive impact on society.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">Bachelor of Engineering in Electrical and Electronics</div>
+                        <div class="education-school">BMS College of Engineering, Bangalore</div>
+                        <div class="education-gpa">GPA: 6.9</div>
+                        <div style="color: #b0b0b0; margin-top: 0.5rem;">
+                            Coursework: Power Electronics, Control Systems, Electromagnetic Field Theory, Digital Electronics
+                        </div>
+                    </div>
+                    <div class="education-date">Jan 2022 - Dec 2026</div>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">Pre University in PCME</div>
+                        <div class="education-school">Sri Kumaran Children's Home PU College, Bangalore</div>
+                        <div class="education-gpa">GPA: 82.33%</div>
+                    </div>
+                    <div class="education-date">Jan 2020 - Dec 2022</div>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">10th in ICSE</div>
+                        <div class="education-school">Little Flower Public School, Bengaluru</div>
+                        <div class="education-gpa">GPA: 92.33%</div>
+                    </div>
+                    <div class="education-date">Jan 2010 - Dec 2020</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">High Frequency Magnetic Design of Boost Converter</div>
+                    <div class="project-date">Oct 2024 - Jun 2025</div>
+                    <div class="project-description">
+                        <ul>
+                            <li>Developed a Boost Converter using wire wound and planar inductor using Trafolo Software</li>
+                            <li>Implemented both the inductors on different PCBs by designing in Altium Software</li>
+                            <li>Designed and optimized a 220 pH, 45-turn planar inductor rated for 2 A using ferrite core integration and PCB spiral geometry</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">Smart Display Board Using SPI</div>
+                    <div class="project-date">Jul 2024 - Aug 2024</div>
+                    <div class="project-description">
+                        <ul>
+                            <li>Web based display board using Dot Matrix Display and SPI Protocol</li>
+                            <li>Developed a smart digital notice board system enabling real-time message updates via SPI communication between microcontroller and display module</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">ECG Signal Processing in MATLAB</div>
+                    <div class="project-date">Feb 2025</div>
+                    <div class="project-description">
+                        <ul>
+                            <li>Developed MATLAB algorithms for ECG signal acquisition, filtering, and noise reduction to enhance waveform clarity</li>
+                            <li>Implemented QRS complex detection and heart rate calculation using signal processing techniques</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">PCB Design of Portable Stereo FM Radio</div>
+                    <div class="project-date">Jul 2024 - Aug 2024</div>
+                    <div class="project-description">
+                        <ul>
+                            <li>Assembled and tested a Stereo FM Radio receiver using an electronic kit, demonstrating proficiency in RF circuit design and audio signal processing</li>
+                            <li>Gained practical experience in frequency modulation principles, stereo decoding, and amplification techniques for high-quality sound output</li>
+                            <li>Enhanced technical competencies in circuit assembly, soldering, component analysis, and system troubleshooting</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-title">Simulation of IEEE 27 Bus Load Flow Analysis</div>
+                    <div class="project-date">Jan 2025 - Feb 2025</div>
+                    <div class="project-description">
+                        <ul>
+                            <li>Conducted power system simulation of the IEEE 27-Bus network using MATLAB/Simulink to analyze load flow, voltage profiles, and system stability</li>
+                            <li>Evaluated system performance under varying load and fault conditions, applying power flow algorithms and stability analysis techniques</li>
+                            <li>Strengthened expertise in power system modeling, simulation, and result interpretation for real-world grid applications</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C Programming</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Engineering Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">MiPower</span>
+                        <span class="skill-tag">Altium</span>
+                        <span class="skill-tag">Trafolo</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Critical Thinking</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Marketing</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">English</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications & Activities Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2>Publications & Activities</h2>
+            
+            <div class="publication-item">
+                <div class="publication-title">"The Rise and Fall of BlackBerry: A Case Study in Strategic Mismanagement and Technological Disruption"</div>
+                <div class="publication-author">Sanandana R</div>
+                <div class="publication-date">Sep 2025</div>
+            </div>
+            
+            <h2 style="margin-top: 3rem;">Extracurricular Activities</h2>
+            
+            <div class="activity-item">
+                <div class="publication-title">Volunteer - UTSAV</div>
+                <div class="publication-date">Jan 2023 - Dec 2024</div>
+            </div>
+            
+            <div class="activity-item">
+                <div class="publication-title">Volunteer - Kreedotsava</div>
+                <div class="publication-date">Jan 2023 - Dec 2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            
+            <div class="contact-info-grid">
+                <div class="contact-info-card">
+                    <span class="contact-icon">📱</span>
+                    <h3>Phone</h3>
+                    <p>+91 78927 12187</p>
+                </div>
+                <div class="contact-info-card">
+                    <span class="contact-icon">📧</span>
+                    <h3>Email</h3>
+                    <p>sanandana7007@gmail.com</p>
+                </div>
+                <div class="contact-info-card">
+                    <span class="contact-icon">📍</span>
+                    <h3>Location</h3>
+                    <p>Mysore Road, Bangalore<br>Karnataka, 560026, India</p>
+                </div>
+                <div class="contact-info-card">
+                    <span class="contact-icon">💼</span>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me professionally</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What is this regarding?" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project or inquiry..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sanandan Ramchandra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Contact form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const firstName = formData.get('firstName');
+            const lastName = formData.get('lastName');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!firstName || !lastName || !email || !subject || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
